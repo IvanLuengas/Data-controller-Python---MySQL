@@ -28,18 +28,3 @@ base.metadata.create_all(engine)
 
 session = sessionmaker(bind=engine)
 sessionActive = session()
-
-try:
-    """name = input("Give me your name: ")
-    age = int(input("Give me your age: "))
-    new_user = user(name, age)
-    sessionActive.add(new_user)
-    sessionActive.commit()
-    print("✅ Usuario insertado correctamente.")"""
-
-except Exception as e:
-    sessionActive.rollback()
-    print("❌ Error al insertar usuario:", e)
-
-finally:
-    sessionActive.close()
